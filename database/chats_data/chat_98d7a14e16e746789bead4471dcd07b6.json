@@ -1,0 +1,29 @@
+{
+  "session_id": "98d7a14e-16e7-4678-9bea-d4471dcd07b6",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello"
+    },
+    {
+      "role": "assistant",
+      "content": "Good evening, Nayandeep. How may I assist you this evening?"
+    },
+    {
+      "role": "user",
+      "content": "hello hello"
+    },
+    {
+      "role": "assistant",
+      "content": "No need to repeat yourself, Nayandeep. I'm here and ready to assist. What's on your mind?"
+    },
+    {
+      "role": "user",
+      "content": "YouTube open YouTube"
+    },
+    {
+      "role": "assistant",
+      "content": "Opening Youtube for you."
+    }
+  ]
+}

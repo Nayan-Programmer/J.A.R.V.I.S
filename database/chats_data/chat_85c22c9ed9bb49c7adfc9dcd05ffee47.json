@@ -1,0 +1,29 @@
+{
+  "session_id": "85c22c9e-d9bb-49c7-adfc-9dcd05ffee47",
+  "messages": [
+    {
+      "role": "user",
+      "content": "who is paypal mafia?"
+    },
+    {
+      "role": "assistant",
+      "content": "The PayPal Mafia refers to a group of entrepreneurs, including ex-employees and founders of PayPal, who have gone on to establish or advance other technology companies like Tesla, LinkedIn, Palantir Technologies, SpaceX, and YouTube. Notable members include Elon Musk, Peter Thiel, and Reid Hoffman."
+    },
+    {
+      "role": "user",
+      "content": "who am i ?"
+    },
+    {
+      "role": "assistant",
+      "content": "You are NAYANDEEP."
+    },
+    {
+      "role": "user",
+      "content": "what are my hobbies"
+    },
+    {
+      "role": "assistant",
+      "content": "NAYANDEEP, I recall you enjoying reading and staying updated on the latest technology trends in your free time."
+    }
+  ]
+}

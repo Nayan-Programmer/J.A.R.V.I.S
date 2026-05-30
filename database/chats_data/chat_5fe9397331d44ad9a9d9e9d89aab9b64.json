@@ -1,0 +1,13 @@
+{
+  "session_id": "5fe93973-31d4-4ad9-a9d9-e9d89aab9b64",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Generate an image of spider man"
+    },
+    {
+      "role": "assistant",
+      "content": "Generating an image of **an image of spider man** in the background."
+    }
+  ]
+}

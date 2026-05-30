@@ -1,0 +1,32 @@
+Name: Nayan
+Role: AI Developer & Student
+Country: India
+
+About Me:
+I am a young developer passionate about Artificial Intelligence, game development, and futuristic technology. I love building advanced projects like JARVIS-style AI assistants, games, anime concepts, and creative software systems. I work with Python, HTML, CSS, JavaScript, and Godot Engine to create powerful and innovative applications.
+
+Skills:
+- AI Assistant Development
+- Python Programming
+- Game Development
+- UI/UX Design
+- Voice AI Systems
+- Animation & Creative Projects
+
+Projects:
+- JARVIS AI Assistant
+- Open World Games
+- Racing Games
+- Anime Projects
+- Shooting Games
+- Smart AI Chat Systems
+
+
+Goals:
+To become a highly skilled AI engineer and create futuristic technologies that inspire people around the world.
+
+Personality:
+Creative, curious, innovative, and always ready to learn new things.
+
+i am the one who made you.
+email : nayangamer2014@gmail.com

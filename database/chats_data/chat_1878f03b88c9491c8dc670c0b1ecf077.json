@@ -1,0 +1,21 @@
+{
+  "session_id": "1878f03b-88c9-491c-8dc6-70c0b1ecf077",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Open YouTube for me"
+    },
+    {
+      "role": "assistant",
+      "content": "Opening **Youtube** for you."
+    },
+    {
+      "role": "user",
+      "content": "GENERATE IMAGE OF IRON MAN"
+    },
+    {
+      "role": "assistant",
+      "content": "Generating an image of **IMAGE OF IRON MAN** in the background."
+    }
+  ]
+}

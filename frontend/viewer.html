@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>J.A.R.V.I.S — Task Result</title>
+  <style>
+    :root {
+      --bg: #0d0d1a;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.09);
+      --accent: #7c6aef;
+      --text: #e8e8f0;
+      --text-dim: #9090b0;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 60px;
+    }
+    header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 36px; width: 100%; max-width: 860px;
+    }
+    header svg { color: var(--accent); flex-shrink: 0; }
+    header h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.5px; }
+    header span { font-size: 0.8rem; color: var(--text-dim); margin-left: auto; }
+
+    #content { width: 100%; max-width: 860px; }
+
+    /* ── Loading ── */
+    .loader { text-align: center; padding: 60px 0; }
+    .spinner {
+      width: 42px; height: 42px; border-radius: 50%;
+      border: 3px solid rgba(124,106,239,0.2);
+      border-top-color: var(--accent);
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loader p { color: var(--text-dim); font-size: 0.9rem; }
+
+    /* ── Error ── */
+    .error-box {
+      background: rgba(255,80,80,0.08);
+      border: 1px solid rgba(255,80,80,0.3);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      color: #ff6b6b;
+      font-size: 0.9rem;
+    }
+
+    /* ── Image result ── */
+    .image-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .image-wrap img {
+      width: 100%; display: block;
+      max-height: 80vh; object-fit: contain;
+    }
+    .image-meta {
+      padding: 16px 20px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border);
+      display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    }
+    .image-meta strong { color: var(--text); }
+    .dl-btn {
+      margin-left: auto;
+      padding: 8px 18px;
+      background: var(--accent);
+      color: #fff;
+      border: none; border-radius: 8px;
+      font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .dl-btn:hover { opacity: 0.9; }
+
+    /* ── Content result ── */
+    .content-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      line-height: 1.7;
+      font-size: 0.93rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .content-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .content-header h2 { font-size: 1rem; color: var(--accent); }
+    .copy-btn {
+      padding: 7px 16px;
+      background: rgba(124,106,239,0.15);
+      border: 1px solid rgba(124,106,239,0.35);
+      color: var(--accent);
+      border-radius: 8px;
+      font-size: 0.8rem; font-weight: 600;
+      cursor: pointer;
+    }
+    .copy-btn:hover { background: rgba(124,106,239,0.25); }
+
+    /* ── Prompt badge ── */
+    .prompt-badge {
+      margin-bottom: 20px;
+      padding: 10px 16px;
+      background: rgba(124,106,239,0.08);
+      border: 1px solid rgba(124,106,239,0.2);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .prompt-badge strong { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+      <path d="M2 17l10 5 10-5"/>
+      <path d="M2 12l10 5 10-5"/>
+    </svg>
+    <h1>J.A.R.V.I.S — Task Result</h1>
+    <span id="task-id-display"></span>
+  </header>
+
+  <div id="content">
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <p>Loading result…</p>
+    </div>
+  </div>
+
+  <script>
+    const API = window.location.origin;
+    const params = new URLSearchParams(window.location.search);
+    const taskId = params.get('task_id');
+    const contentEl = document.getElementById('content');
+
+    if (taskId) {
+      document.getElementById('task-id-display').textContent = `Task: ${taskId.slice(0, 8)}…`;
+    }
+
+    function showError(msg) {
+      contentEl.innerHTML = `<div class="error-box">⚠️ ${msg}</div>`;
+    }
+
+    function renderImage(result) {
+      contentEl.innerHTML = `
+        <div class="prompt-badge"><strong>Prompt:</strong> ${escHtml(result.prompt || '')}</div>
+        <div class="image-wrap">
+          <img src="${escHtml(result.url)}" alt="${escHtml(result.prompt || 'Generated image')}"
+               onerror="this.parentElement.innerHTML='<p style=padding:24px;color:#ff6b6b>Image failed to load. Try opening the URL directly.</p>'" />
+          <div class="image-meta">
+            <span>${result.width || 1024} × ${result.height || 1024}px</span>
+            <a class="dl-btn" href="${escHtml(result.url)}" target="_blank" download>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Open / Download
+            </a>
+          </div>
+        </div>`;
+    }
+
+    function renderContent(result) {
+      contentEl.innerHTML = `
+        <div class="prompt-badge"><strong>Prompt:</strong> ${escHtml(result.prompt || '')}</div>
+        <div class="content-box">
+          <div class="content-header">
+            <h2>Generated Content</h2>
+            <button class="copy-btn" onclick="copyText()">Copy</button>
+          </div>
+          <div id="text-body">${escHtml(result.text || '')}</div>
+        </div>`;
+    }
+
+    function copyText() {
+      const el = document.getElementById('text-body');
+      if (!el) return;
+      navigator.clipboard.writeText(el.textContent).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); }
+      });
+    }
+
+    function escHtml(str) {
+      return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    async function pollTask() {
+      if (!taskId) { showError('No task_id in URL.'); return; }
+      let polls = 0;
+      const maxPolls = 120;
+      const interval = setInterval(async () => {
+        polls++;
+        if (polls > maxPolls) { clearInterval(interval); showError('Task timed out.'); return; }
+        try {
+          const r = await fetch(`${API}/tasks/${encodeURIComponent(taskId)}`);
+          const data = await r.json();
+          if (data.status === 'completed') {
+            clearInterval(interval);
+            const result = data.result || {};
+            if (result.type === 'image') renderImage(result);
+            else if (result.type === 'content') renderContent(result);
+            else contentEl.innerHTML = `<pre class="content-box">${escHtml(JSON.stringify(result, null, 2))}</pre>`;
+          } else if (data.status === 'failed') {
+            clearInterval(interval);
+            showError(data.error || 'Task failed.');
+          } else if (data.status === 'not_found') {
+            clearInterval(interval);
+            showError('Task not found. It may have expired.');
+          }
+        } catch (e) { /* keep polling */ }
+      }, 1500);
+    }
+
+    pollTask();
+  </script>
+</body>
+</html>

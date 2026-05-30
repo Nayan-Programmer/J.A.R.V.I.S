@@ -1,0 +1,189 @@
+{
+  "session_id": "a5fea216-34bb-4e16-ad0a-aadb511af882",
+  "messages": [
+    {
+      "role": "user",
+      "content": "no open YouTube"
+    },
+    {
+      "role": "assistant",
+      "content": "Opening **Youtube** for you."
+    },
+    {
+      "role": "user",
+      "content": "open groww.com"
+    },
+    {
+      "role": "assistant",
+      "content": "Opening **Groww** for you."
+    },
+    {
+      "role": "user",
+      "content": "open chat gvt.com"
+    },
+    {
+      "role": "assistant",
+      "content": "Opening **Chat gvt** for you."
+    },
+    {
+      "role": "user",
+      "content": "open chat GPT"
+    },
+    {
+      "role": "assistant",
+      "content": "Opening **Chat gpt** for you."
+    },
+    {
+      "role": "user",
+      "content": "generate image of Iron Man"
+    },
+    {
+      "role": "assistant",
+      "content": "Generating an image of **image of Iron Man** in the background."
+    },
+    {
+      "role": "user",
+      "content": "generate image of Indore"
+    },
+    {
+      "role": "assistant",
+      "content": "Generating an image of **image of Indore** in the background."
+    },
+    {
+      "role": "user",
+      "content": "ki dream job"
+    },
+    {
+      "role": "assistant",
+      "content": "NAYANDEEP, your dream job is to work as a software engineer at a prestigious company."
+    },
+    {
+      "role": "user",
+      "content": "generate image of me"
+    },
+    {
+      "role": "assistant",
+      "content": "Generating an image of **image of me** in the background."
+    },
+    {
+      "role": "user",
+      "content": "and listen my job"
+    },
+    {
+      "role": "assistant",
+      "content": "NAYANDEEP, I've accessed your information, and it appears you're currently working as a software engineer."
+    },
+    {
+      "role": "user",
+      "content": "entrepreneur"
+    },
+    {
+      "role": "assistant",
+      "content": "NAYANDEEP, it seems your true aspiration is to be an entrepreneur, building your own business and ventures."
+    },
+    {
+      "role": "user",
+      "content": "build a company like Nvidia"
+    },
+    {
+      "role": "assistant",
+      "content": "NAYANDEEP, you'd like to build a company similar to Nvidia, focusing on cutting-edge technology, possibly in the fields of graphics processing, artificial intelligence, or high-performance computing."
+    },
+    {
+      "role": "user",
+      "content": "play new jeans Jersey club"
+    },
+    {
+      "role": "assistant",
+      "content": "Playing **new jeans Jersey club** on YouTube."
+    },
+    {
+      "role": "user",
+      "content": "play any video new"
+    },
+    {
+      "role": "assistant",
+      "content": "Playing **any video new** on YouTube."
+    },
+    {
+      "role": "user",
+      "content": "which colour t-shirt I was TTCAMTOKENTT"
+    },
+    {
+      "role": "assistant",
+      "content": "I had trouble analyzing that image. Please try again."
+    },
+    {
+      "role": "user",
+      "content": "which colour t-shirt timer TTCAMTOKENTT"
+    },
+    {
+      "role": "assistant",
+      "content": "I had trouble analyzing that image. Please try again."
+    },
+    {
+      "role": "user",
+      "content": "which colour t-shirt I wear TTCAMTOKENTT"
+    },
+    {
+      "role": "assistant",
+      "content": "I had trouble analyzing that image. Please try again."
+    },
+    {
+      "role": "user",
+      "content": "what is return TTCAMTOKENTT"
+    },
+    {
+      "role": "assistant",
+      "content": "I had trouble analyzing that image. Please try again."
+    },
+    {
+      "role": "user",
+      "content": "what colour t-shirt ever TTCAMTOKENTT"
+    },
+    {
+      "role": "assistant",
+      "content": "I had trouble analyzing that image. Please try again."
+    },
+    {
+      "role": "user",
+      "content": "which t-shirt I wear TTCAMTOKENTT"
+    },
+    {
+      "role": "assistant",
+      "content": "I had trouble analyzing that image. Please try again."
+    },
+    {
+      "role": "user",
+      "content": "what is return TTCAMTOKENTT"
+    },
+    {
+      "role": "assistant",
+      "content": "I had trouble analyzing that image. Please try again."
+    },
+    {
+      "role": "user",
+      "content": "what is wrote on my t-shirt TTCAMTOKENTT"
+    },
+    {
+      "role": "assistant",
+      "content": "I had trouble analyzing that image. Please try again."
+    },
+    {
+      "role": "user",
+      "content": "Ek Bar pakad ke dhundh TTCAMTOKENTT"
+    },
+    {
+      "role": "assistant",
+      "content": "I had trouble analyzing that image. Please try again."
+    },
+    {
+      "role": "user",
+      "content": "2026-05-28 16:52:38 | ERROR    | J.A.R.V.I.S          | [VISION] All keys/models failed. Last error: Error code: 400 - {'error': {'message': 'messages[13].content must be a string', 'type': 'invalid_request_error', 'param': 'messages[13].content'}}\n2026-05-28 16:52:38 | INFO     | watchfiles.main      | 1 change detected"
+    },
+    {
+      "role": "assistant",
+      "content": "It appears there's been an error with the image analysis. The system was unable to process the request due to an invalid request error. Let's start fresh, NAYANDEEP."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "session_id": "7a7c91bd-c9c0-4dc6-8e9a-1ece7c433fd6",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What can you do?"
+    },
+    {
+      "role": "assistant",
+      "content": "I can manage your schedule, provide information, control various systems, and assist with tasks. I'm here to make things easier for you, NAYANDEEP."
+    },
+    {
+      "role": "user",
+      "content": "generate image of spiderman"
+    },
+    {
+      "role": "assistant",
+      "content": "Generating an image of **image of spiderman** in the background."
+    },
+    {
+      "role": "user",
+      "content": "GENERATE IMAGE OF HILK"
+    },
+    {
+      "role": "assistant",
+      "content": "Generating an image of **IMAGE OF HILK** in the background."
+    }
+  ]
+}
